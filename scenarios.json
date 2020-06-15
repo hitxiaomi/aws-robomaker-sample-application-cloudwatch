@@ -1,63 +1,74 @@
 {
-	"wait": 5,
-	"scenarios": {
-	    "QuickNavBookStore": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "1",
-	        "SIMULATION_WORLD": "bookstore"
-	      }
-	    },
-	    "MultiNavBookStore": {
-	      "robotEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2"
-	      },
-	      "simEnvironmentVariables": {
-	        "ROS_AWS_REGION": "us-west-2",
-	        "TURTLEBOT3_MODEL": "waffle_pi",
-	        "NAVIGATION_SUCCESS_COUNT": "3",
-	        "SIMULATION_WORLD": "bookstore"
-	      }
-	    }
-	},
-	"simulations": [{
-		"scenarios": [
-			"MultiNavBookStore",
-	        "QuickNavBookStore"
-	      ],
-		"params": {
-			"failureBehavior": "Fail",
-			"iamRole": "arn:aws:iam::461812446130:role/robomaker-simulation-role-us-west-2",
-			"maxJobDurationInSeconds": 600,
-			"outputLocation": {
-				"s3Bucket": "cicd-s3bucket-nqh6b2u44yp2",
-				"s3Prefix": "simulation_job_output"
-			},
-			"robotApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:robot-application/RobotApplication-dafNLAfgFVqa/1578670254551",
-				"applicationVersion": "$LATEST",
-				"launchConfig": {
-					"launchFile": "await_commands.launch",
-					"packageName": "cloudwatch_robot"
-				}
-			}],
-			"simulationApplications": [{
-				"application": "arn:aws:robomaker:us-west-2:461812446130:simulation-application/SimulationApplication-YG95TofZ6TJM/1578670253883",
-				"applicationVersion": "$LATEST",
-				"launchConfig": {
-                    "packageName": "cloudwatch_simulation",
-                    "launchFile": "worlds.launch"
-				}
-			}],
-			"vpcConfig": {
-				"assignPublicIp": true,
-				"securityGroups": ["sg-0bc51ec804e017cfc"],
-				"subnets": ["subnet-0548e9e7874173a3d", "subnet-09192b43800bc6593"]
-			}
-		}
-	}]
+    "wait": 5,
+    "scenarios": {
+        "QuickNavBookStore": {
+            "robotEnvironmentVariables": {
+                "ROS_AWS_REGION": "ap-northeast-1"
+            },
+            "simEnvironmentVariables": {
+                "ROS_AWS_REGION": "ap-northeast-1",
+                "TURTLEBOT3_MODEL": "waffle_pi",
+                "NAVIGATION_SUCCESS_COUNT": "1",
+                "SIMULATION_WORLD": "bookstore"
+            }
+        },
+        "MultiNavBookStore": {
+            "robotEnvironmentVariables": {
+                "ROS_AWS_REGION": "ap-northeast-1"
+            },
+            "simEnvironmentVariables": {
+                "ROS_AWS_REGION": "ap-northeast-1",
+                "TURTLEBOT3_MODEL": "waffle_pi",
+                "NAVIGATION_SUCCESS_COUNT": "3",
+                "SIMULATION_WORLD": "bookstore"
+            }
+        }
+    },
+    "simulations": [
+        {
+            "scenarios": [
+                "MultiNavBookStore",
+                "QuickNavBookStore"
+            ],
+            "params": {
+                "failureBehavior": "Fail",
+                "iamRole": "arn:aws:iam::401331680249:role/robomaker-simulation-role-batch-ap-northeast-1",
+                "maxJobDurationInSeconds": 600,
+                "outputLocation": {
+                    "s3Bucket": "cloud-cicd-test-1450-s3bucket-nrklb7b6eqtk",
+                    "s3Prefix": "simulation_job_output"
+                },
+                "robotApplications": [
+                    {
+                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:robot-application/RobotApplication-MzemlnqdrnPQ/1592203895978",
+                        "applicationVersion": "$LATEST",
+                        "launchConfig": {
+                            "launchFile": "await_commands.launch",
+                            "packageName": "cloudwatch_robot"
+                        }
+                    }
+                ],
+                "simulationApplications": [
+                    {
+                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:simulation-application/SimulationApplication-RPy8y9GmCIO3/1592203895665",
+                        "applicationVersion": "$LATEST",
+                        "launchConfig": {
+                            "packageName": "cloudwatch_simulation",
+                            "launchFile": "worlds.launch"
+                        }
+                    }
+                ],
+                "vpcConfig": {
+                    "assignPublicIp": false,
+                    "securityGroups": [
+                        "sg-0ac1f0b67c937fb0e"
+                    ],
+                    "subnets": [
+                        "subnet-02b656e07b722143d",
+                        "subnet-09d96d24aa43c7c34"
+                    ]
+                }
+            }
+        }
+    ]
 }
