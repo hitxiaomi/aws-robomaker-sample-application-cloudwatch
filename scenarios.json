@@ -19,7 +19,7 @@
             "simEnvironmentVariables": {
                 "ROS_AWS_REGION": "ap-northeast-1",
                 "TURTLEBOT3_MODEL": "waffle_pi",
-                "NAVIGATION_SUCCESS_COUNT": "3",
+                "NAVIGATION_SUCCESS_COUNT": "1",
                 "SIMULATION_WORLD": "bookstore"
             }
         }
@@ -32,7 +32,7 @@
             ],
             "params": {
                 "failureBehavior": "Fail",
-                "iamRole": "arn:aws:iam::401331680249:role/robomaker-simulation-role-batch-ap-northeast-1",
+                "iamRole": "arn:aws:iam::401331680249:role/robomaker-simulation-job-role",
                 "maxJobDurationInSeconds": 600,
                 "outputLocation": {
                     "s3Bucket": "cloud-cicd-test-1450-s3bucket-nrklb7b6eqtk",
@@ -40,21 +40,21 @@
                 },
                 "robotApplications": [
                     {
-                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:robot-application/RobotApplication-MzemlnqdrnPQ/1592203895978",
+                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:robot-application/navigation-app/1590730748648",
                         "applicationVersion": "$LATEST",
                         "launchConfig": {
-                            "launchFile": "await_commands.launch",
-                            "packageName": "cloudwatch_robot"
+                            "launchFile": "navi.launch",
+                            "packageName": "navigation_app"
                         }
                     }
                 ],
                 "simulationApplications": [
                     {
-                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:simulation-application/SimulationApplication-RPy8y9GmCIO3/1592203895665",
+                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:simulation-job/sim-13l9m4y4sdqq",
                         "applicationVersion": "$LATEST",
                         "launchConfig": {
-                            "packageName": "cloudwatch_simulation",
-                            "launchFile": "worlds.launch"
+                            "packageName": "simulator",
+                            "launchFile": "gui.launch"
                         }
                     }
                 ],
