@@ -32,7 +32,7 @@
             ],
             "params": {
                 "failureBehavior": "Fail",
-                "iamRole": "arn:aws:iam::401331680249:role/robomaker-simulation-job-role",
+                "iamRole": "arn:aws:iam::401331680249:role/robomaker-simulation-role-batch-ap-northeast-1",
                 "maxJobDurationInSeconds": 600,
                 "outputLocation": {
                     "s3Bucket": "cloud-cicd-test-1450-s3bucket-nrklb7b6eqtk",
@@ -40,7 +40,7 @@
                 },
                 "robotApplications": [
                     {
-                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:robot-application/navigation-app/1590730748648",
+                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:robot-application/RobotApplication-MzemlnqdrnPQ/1592203895978",
                         "applicationVersion": "$LATEST",
                         "launchConfig": {
                             "launchFile": "navi.launch",
@@ -50,7 +50,7 @@
                 ],
                 "simulationApplications": [
                     {
-                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:simulation-job/sim-13l9m4y4sdqq",
+                        "application": "arn:aws:robomaker:ap-northeast-1:401331680249:simulation-application/SimulationApplication-RPy8y9GmCIO3/1592203895665",
                         "applicationVersion": "$LATEST",
                         "launchConfig": {
                             "packageName": "simulator",
