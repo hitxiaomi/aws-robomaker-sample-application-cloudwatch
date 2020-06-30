@@ -43,8 +43,8 @@
                         "application": "arn:aws:robomaker:ap-northeast-1:401331680249:robot-application/RobotApplication-MzemlnqdrnPQ/1592203895978",
                         "applicationVersion": "$LATEST",
                         "launchConfig": {
-                            "launchFile": "navi.launch",
-                            "packageName": "navigation_app"
+                            "launchFile": "await_commands.launch",
+                            "packageName": "cloudwatch_robot"
                         }
                     }
                 ],
@@ -53,8 +53,8 @@
                         "application": "arn:aws:robomaker:ap-northeast-1:401331680249:simulation-application/SimulationApplication-RPy8y9GmCIO3/1592203895665",
                         "applicationVersion": "$LATEST",
                         "launchConfig": {
-                            "packageName": "simulator",
-                            "launchFile": "gui.launch"
+                            "packageName": "cloudwatch_simulation",
+                            "launchFile": "test_world.launch"
                         }
                     }
                 ],
